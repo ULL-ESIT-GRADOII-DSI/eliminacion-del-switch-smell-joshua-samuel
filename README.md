@@ -5,7 +5,7 @@ Este repositorio aloja la práctica de eliminación de smells code del conversor
 **Dirección del campus virtual**
 
 * [https://campusvirtual.ull.es/1516/mod/page/view.php?id=180154](Enunciado de la práctica)
-
+* [https://www.gitbook.com/book/casianorodriguezleon/pl1516/details](Gitbook con el enunciado)
 
 **Repositorio GitHuB**
 
