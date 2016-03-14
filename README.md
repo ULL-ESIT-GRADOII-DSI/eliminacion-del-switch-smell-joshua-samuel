@@ -10,7 +10,7 @@ Este repositorio aloja la práctica de eliminación de smells code del conversor
 **Repositorio GitHuB**
 
 * [FORK](https://github.com/Losnen/eliminacion-del-switch-smell-joshua-samuel)
-* [Repositorio de entrega](https://github.com/Losnen/eliminacion-del-switch-smell-joshua-samuel)
+* [Repositorio de entrega](https://github.com/ULL-ESIT-GRADOII-DSI/eliminacion-del-switch-smell-joshua-samuel)
 
 **Página de la práctica**
 
