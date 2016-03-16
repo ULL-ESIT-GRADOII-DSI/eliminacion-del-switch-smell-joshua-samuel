@@ -28,11 +28,6 @@ Medida.match = function (valor) {
 Medida.measures = {};
 
 Medida.convertir = function(valor) {
-  var measures = Medida.measures;
-
-  measures.c  = Celsius;
-  measures.f = Fahrenheit;
-  measures.k = Kelvin;
 
   var match = Medida.match(valor);
   if (match) {
