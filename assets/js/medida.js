@@ -1,17 +1,4 @@
-function Medida (valor,tipo)
-{
-    var regexp = /^\s*([-+]?\d+(?:\.\d*)?(?:e[-+]?\d+)?)\s*([a-zA-Z]+)\s*$/i;
-    var val = regexp.exec(valor);
-    if (val) {
-      this.valor = val[1];
-      this.tipo = val[2];
-    } else {
-      this.valor = valor;
-      this.tipo = tipo;
-    }
-}
-
-Medida.match = function (valor) {
+function rgx (valor) {
   var regexp = XRegExp('^([ ]*) \n' +
                     '(?<val> [-+]?[0-9]+(\.[0-9]+)?(?:e[+-]?[0-9]+)?) # val \n' +
                     '([ ]*) \n' +
@@ -25,11 +12,38 @@ Medida.match = function (valor) {
   return valor;
 }
 
+function Medida (valor,tipo)
+{
+    //var regexp = /^\s*([-+]?\d+(?:\.\d*)?(?:e[-+]?\d+)?)\s*([a-zA-Z]+)\s*$/i;
+    var val = rgx(valor);
+    if (val) {
+      this.valor = val[1];
+      this.tipo = val[2];
+    } else {
+      this.valor = valor;
+      this.tipo = tipo;
+    }
+}
+/*
+Medida.match = function (valor) {
+  var regexp = XRegExp('^([ ]*) \n' +
+                    '(?<val> [-+]?[0-9]+(\.[0-9]+)?(?:e[+-]?[0-9]+)?) # val \n' +
+                    '([ ]*) \n' +
+                    '(?<tip> [a-zA-Z]) # tip \n' +
+                    '([ ]*) \n' +
+                    '(?<to> (to))? # to \n' +
+                    '([ ]*) \n' +
+                    '(?<para> [a-zA-Z]+) # para \n' +
+                    '([ ]*)$','x');
+  valor = XRegExp.exec(valor, regexp);
+  return valor;
+}*/
+
 Medida.measures = {};
 
 Medida.convertir = function(valor) {
 
-  var match = Medida.match(valor);
+  var match = rgx(valor);
   if (match) {
     var numero = match.val,
         tipo   = match.tip.toLowerCase(),
