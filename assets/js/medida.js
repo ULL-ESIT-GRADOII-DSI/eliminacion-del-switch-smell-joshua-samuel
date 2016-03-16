@@ -1,6 +1,6 @@
 function Medida (valor,tipo)
 {
-    var regexp = /^\s*([-+]?\d+(?:\.\d*)?(?:e[-+]?\d+)?)\s*([a-zA-Z])\s*$/i;
+    var regexp = /^\s*([-+]?\d+(?:\.\d*)?(?:e[-+]?\d+)?)\s*([a-zA-Z]+)\s*$/i;
     var val = regexp.exec(valor);
     if (val) {
       this.valor = val[1];
@@ -19,7 +19,7 @@ Medida.match = function (valor) {
                     '([ ]*) \n' +
                     '(?<to> (to))? # to \n' +
                     '([ ]*) \n' +
-                    '(?<para> [a-zA-Z]) # para \n' +
+                    '(?<para> [a-zA-Z]+) # para \n' +
                     '([ ]*)$','x');
   valor = XRegExp.exec(valor, regexp);
   return valor;
@@ -36,9 +36,9 @@ Medida.convertir = function(valor) {
         destino = match.para.toLowerCase();
 
     try {
-      var source = new measures[tipo](numero);                  // new Fahrenheit(32)
-      var target = "to"+measures[destino].name;                 // "toCelsius"
-      return source[target]().toFixed(2) + " "+measures[destino].name;          // "0 Celsius"
+      var source = new measures[tipo](numero);                  
+      var target = "to"+measures[destino].name;                
+      return source[target]().toFixed(2) + " "+measures[destino].name;        
     }
     catch(err) {
       console.log(err);
