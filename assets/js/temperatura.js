@@ -6,6 +6,9 @@ function Temperatura(valor,tipo)
 Temperatura.prototype = new Medida ();
 Temperatura.prototype.constructor = Temperatura;
 
+ var measures = Medida.measures;
+
+
 function Celsius(valor)
 {
   Temperatura.call(this, valor);
@@ -13,6 +16,7 @@ function Celsius(valor)
 
 Celsius.prototype = new Temperatura();
 Celsius.prototype.constructor = Celsius;
+measures.c  = Celsius;
 
 Celsius.prototype.toFahrenheit = function () {
   var result = (this.valor * 9/5)+32;
@@ -20,7 +24,7 @@ Celsius.prototype.toFahrenheit = function () {
 }
 
 Celsius.prototype.toKelvin = function () {
-  var result = parseFloat(this.valor) + 273.15;
+  var result = parseFloat(this.valor + 273.15);
   return result;
 }
 
@@ -31,6 +35,7 @@ function Kelvin(valor)
 
 Kelvin.prototype = new Temperatura();
 Kelvin.prototype.constructor = Kelvin;
+ measures.k = Kelvin;
 
 Kelvin.prototype.toCelsius = function () {
   var result = this.valor - 273.15;
@@ -49,6 +54,7 @@ function Fahrenheit(valor)
 
 Fahrenheit.prototype = new Temperatura();
 Fahrenheit.prototype.constructor = Fahrenheit;
+measures.f = Fahrenheit;
 
 Fahrenheit.prototype.toCelsius = function () {
   var result = (this.valor - 32) * 5/9;
